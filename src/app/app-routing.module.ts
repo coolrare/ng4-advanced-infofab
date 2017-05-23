@@ -4,12 +4,18 @@ import {CardsComponent} from 'app/cards/cards.component';
 import {FlotComponent} from 'app/charts/flot/flot.component';
 import {DashboardComponent} from 'app/dashboard/dashboard.component';
 import {fallbackRoute} from 'app/shared/fallback-route';
+import { LayoutComponent } from "app/layout/layout.component";
+import { LoginComponent } from "app/login/login.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  {path: 'dashboard', component: DashboardComponent, data: {title: 'Page 1'}},
-  {path: 'cards/:type', component: CardsComponent},
-  {path: 'charts', loadChildren: './charts/charts.module#ChartsModule'},
+  {path: '', component: LayoutComponent,
+  children: [
+    {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+    {path: 'dashboard', component: DashboardComponent, data: {title: 'Page 1'}},
+    {path: 'cards/:type', component: CardsComponent},
+    {path: 'charts', loadChildren: './charts/charts.module#ChartsModule'},
+  ]},
+  {path: 'login', component: LoginComponent},
   fallbackRoute
 ];
 
