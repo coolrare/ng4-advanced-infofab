@@ -4,5 +4,11 @@ interface NodeModule {
   id: string;
 }
 
-declare var $: any;
 declare var Colors: any;
+
+declare interface JQuery {
+  plot: any;
+  easyPieChart: any;
+  datepicker: any;
+  vectorMap: any;
+}
