@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Route, RouterModule, Routes} from '@angular/router';
+import {Route, RouterModule, Routes, PreloadAllModules} from '@angular/router';
 import {CardsComponent} from 'app/cards/cards.component';
 import {FlotComponent} from 'app/charts/flot/flot.component';
 import {DashboardComponent} from 'app/dashboard/dashboard.component';
@@ -15,7 +15,11 @@ const routes: Routes = [
 
 @NgModule({
   imports:
-      [RouterModule.forRoot(routes, {useHash: false, enableTracing: false})],
+      [RouterModule.forRoot(routes, {
+        useHash: false,
+        enableTracing: false,
+        preloadingStrategy: PreloadAllModules
+      })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
