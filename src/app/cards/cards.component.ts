@@ -28,6 +28,11 @@ export class CardsComponent implements OnInit {
       this.key1 = params['key1'];
       this.key2 = params['key2'];
     });
+
+    this.route.queryParams.subscribe((params) => {
+      this.key1 = params['key1'];
+      this.key2 = params['key2'];
+    });
   }
 
   goNext(num) {
