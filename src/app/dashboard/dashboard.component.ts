@@ -14,4 +14,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     $(initDashboard);
   }
+
+  goCards(id) {
+    this.router.navigateByUrl('/cards/' + id);
+  }
 }
