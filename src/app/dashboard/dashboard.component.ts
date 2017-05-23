@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   }
 
   goCards(id) {
-    this.router.navigateByUrl('/cards/' + id);
+    // this.router.navigateByUrl('/cards/' + id);
+    this.router.navigate(['/cards', id]);
   }
 }
