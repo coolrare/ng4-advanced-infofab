@@ -8,7 +8,7 @@ import {fallbackRoute} from 'app/shared/fallback-route';
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent, data: {title: 'Page 1'}},
-  {path: 'cards', component: CardsComponent},
+  {path: 'cards/:type', component: CardsComponent},
   {path: 'charts', children: [
     {path: 'flot', component: FlotComponent}]
   },
