@@ -10,6 +10,9 @@ export class CardsComponent implements OnInit {
 
   type: string = '';
 
+  key1 = '';
+  key2 = '';
+
   constructor(private router: Router,
               private route: ActivatedRoute) { }
 
@@ -21,6 +24,9 @@ export class CardsComponent implements OnInit {
     // 透過 Observable 取得即時的 :type 參數值
     this.route.params.subscribe((params) => {
       this.type = params['type'];
+
+      this.key1 = params['key1'];
+      this.key2 = params['key2'];
     });
   }
 
