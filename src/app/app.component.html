@@ -2,7 +2,10 @@
   {{title}}
 </h1>
 <ul>
-  <li><a routerLink="/page1">Page1</a></li>
-  <li><a [routerLink]="genUrl()">Page2</a></li>
+  <li><a routerLink="/"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+  <li><a routerLink="/page1" routerLinkActive="active">Page1</a></li>
+  <li><a [routerLink]="genUrl()" routerLinkActive="active">Page2</a></li>
 </ul>
 <router-outlet></router-outlet>
