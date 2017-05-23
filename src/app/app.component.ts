@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  genUrl() {
+    let url = [];
+    url.push('page2');
+    url.push('a');
+    url.push('b');
+    url.push('c');
+    url.push('d');
+    return url;
+  }
 }
