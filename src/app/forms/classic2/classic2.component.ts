@@ -1,18 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
-
-function valueMustContainsWill(c: AbstractControl) {
-  if(c.value.indexOf('Will') === -1) {
-    return {
-      'must-contains-will': {
-        error_code: 1,
-        error_msg: '字串中必須包含 Will 字樣'
-      }
-    };
-  } else {
-    return null;
-  }
-}
+import { valueMustContainsWill } from "app/shared/must-contains-will.validator";
 
 @Component({
   selector: 'app-classic2',
