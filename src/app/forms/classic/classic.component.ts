@@ -10,7 +10,12 @@ import { Http, Headers, RequestOptions } from "@angular/http";
 })
 export class ClassicComponent implements OnInit {
 
-  data: any = {};
+  data: any = {
+    title: '',
+    desc: []
+  };
+
+  list = new Array(2);
 
   constructor(private http: Http) { }
 
@@ -28,4 +33,7 @@ export class ClassicComponent implements OnInit {
     }
   }
 
+  addNew() {
+    this.list.push(0);
+  }
 }

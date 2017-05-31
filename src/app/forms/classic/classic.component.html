@@ -18,7 +18,7 @@ errors = {{f.errors|json}}
               <label class="col-sm-2 control-label">標題</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control rounded"
-                       name="title" [(ngModel)]="data.title" #mTitle="ngModel" required>
+                       name="title" [(ngModel)]="data.title" #mTitle="ngModel" required minlength="3" maxlength="30">
                 <span class="help-block" *ngIf="mTitle.errors?.required">請輸入標題欄位</span>
 <pre>value = {{mTitle.value}}
 valid/invalid = {{mTitle.valid}}/{{mTitle.invalid}}
@@ -31,12 +31,14 @@ errors = {{mTitle.errors|json}}
             </div>
           </fieldset>
 
-          <fieldset ngModelGroup="metadata" #mMetadata="ngModelGroup">
+<div ngModelGroup="metadata" #mMetadata="ngModelGroup">
+
+          <fieldset *ngFor="let item of list; let idx = index">
             <div class="form-group" [class.has-error]="mDesc.invalid">
-              <label class="col-sm-2 control-label">摘要</label>
+              <label class="col-sm-2 control-label">摘要 {{idx+1}}</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control"
-                       name="desc" [(ngModel)]="data.desc" #mDesc="ngModel" required>
+                       [name]="'desc'+idx" [(ngModel)]="data.desc[idx]" #mDesc="ngModel" required>
                 <span class="help-block" *ngIf="mDesc.errors?.required">請輸入摘要</span>
 <pre>value = {{mDesc.value}}
 valid/invalid = {{mDesc.valid}}/{{mDesc.invalid}}
@@ -48,6 +50,9 @@ errors = {{mDesc.errors|json}}
               </div>
             </div>
           </fieldset>
+
+          <input type="button" value="新增一筆摘要" (click)="addNew()">
+</div>
 
           <input type="submit" value="送出表單" class="btn btn-default">
 
