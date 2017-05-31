@@ -20,11 +20,12 @@ export class ClassicComponent implements OnInit {
   doSubmit(f: NgForm) {
     console.log(f.value);
 
-    this.http.post('http://localhost:3000/myform', f.value)
-      .subscribe((res) => {
-        console.log(res);
-      });
-
+    if (f.valid) {
+      this.http.post('http://localhost:3000/myform', this.data)
+        .subscribe((res) => {
+          console.log(res);
+        });
+    }
   }
 
 }

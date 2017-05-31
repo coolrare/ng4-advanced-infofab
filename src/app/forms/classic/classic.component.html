@@ -30,7 +30,8 @@ errors = {{mTitle.errors|json}}
               </div>
             </div>
           </fieldset>
-          <fieldset>
+
+          <fieldset ngModelGroup="metadata" #mMetadata="ngModelGroup">
             <div class="form-group" [class.has-error]="mDesc.invalid">
               <label class="col-sm-2 control-label">摘要</label>
               <div class="col-sm-10">
