@@ -48,8 +48,10 @@ errors = {{form.controls.desc.errors|json}}
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">地址</label>
               <div class="col-sm-10" formGroupName="addresses">
-                1: <input id="input-id-1" type="text" class="form-control" formControlName="address1">
-                2: <input id="input-id-1" type="text" class="form-control" formControlName="address2">
+                <div *ngFor="let item of form.controls.addresses.controls; let idx = index">
+                  {{idx+1}}: <input id="input-id-1" type="text" class="form-control" [formControlName]="idx">
+                </div>
+                <button type="button" (click)="addAddress()">新增地址</button>
               </div>
             </div>
           </fieldset>
