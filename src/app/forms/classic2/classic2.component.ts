@@ -23,7 +23,11 @@ export class Classic2Component implements OnInit {
       ],
       desc: ['Hello World',
         [Validators.required]
-      ]
+      ],
+      addresses: this.fb.group({
+        address1: 'address 1',
+        address2: 'address 2'
+      })
     });
   }
 

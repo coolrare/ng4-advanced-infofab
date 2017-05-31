@@ -46,9 +46,10 @@ errors = {{form.controls.desc.errors|json}}
           </fieldset>
           <fieldset>
             <div class="form-group">
-              <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
-              <div class="col-sm-10">
-                <input id="input-id-1" type="text" class="form-control">
+              <label for="input-id-1" class="col-sm-2 control-label">地址</label>
+              <div class="col-sm-10" formGroupName="addresses">
+                1: <input id="input-id-1" type="text" class="form-control" formControlName="address1">
+                2: <input id="input-id-1" type="text" class="form-control" formControlName="address2">
               </div>
             </div>
           </fieldset>
