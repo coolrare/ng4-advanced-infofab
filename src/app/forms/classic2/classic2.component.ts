@@ -1,5 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
+
+function valueMustContainsWill(c: AbstractControl) {
+  if(c.value.indexOf('Will') === -1) {
+    return {
+      'must-contains-will': {
+        error_code: 1,
+        error_msg: '字串中必須包含 Will 字樣'
+      }
+    };
+  } else {
+    return null;
+  }
+}
 
 @Component({
   selector: 'app-classic2',
@@ -19,7 +32,7 @@ export class Classic2Component implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       title: ['Will Huang',
-        [Validators.required, Validators.minLength(3)]
+        [Validators.required, Validators.minLength(3), valueMustContainsWill]
       ],
       desc: ['Hello World',
         [Validators.required]
@@ -49,15 +62,15 @@ export class Classic2Component implements OnInit {
 
   setValue() {
     this.form.setValue({
-      "title": "Will Huang",
-      "desc": "Hello World",
-      "group1": {
-        "sample1": "sample 1",
-        "sample2": "sample 2"
+      'title': 'Will Huang',
+      'desc': 'Hello World',
+      'group1': {
+        'sample1': 'sample 1',
+        'sample2': 'sample 2'
       },
-      "addresses": [
-        "address 1",
-        "address 2"
+      'addresses': [
+        'address 1',
+        'address 2'
       ]
     });
   }
