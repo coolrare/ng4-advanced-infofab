@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import { BlockComponent } from "app/block/block.component";
 
 @Component({
   selector: 'app-cards',
@@ -12,6 +13,12 @@ export class CardsComponent implements OnInit {
 
   key1 = '';
   key2 = '';
+
+  @ViewChild('block1')
+  block1: BlockComponent;
+
+  @ViewChild(BlockComponent)
+  block2: BlockComponent;
 
   constructor(private router: Router,
               private route: ActivatedRoute) { }
@@ -40,4 +47,7 @@ export class CardsComponent implements OnInit {
     this.router.navigate(['/cards', next_id]);
   }
 
+  ngAfterViewInit() {
+    this.block2.title = 'Oh, Yeah!';
+  }
 }

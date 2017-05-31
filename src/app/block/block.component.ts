@@ -7,7 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BlockComponent implements OnInit {
 
-  @Input()
   title = 'Sky red';
 
   constructor() { }
