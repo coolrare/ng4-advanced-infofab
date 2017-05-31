@@ -20,11 +20,7 @@ export class ClassicComponent implements OnInit {
   doSubmit(f: NgForm) {
     console.log(f.value);
 
-    let body = JSON.stringify(f.value);
-    let headers = new Headers({ 'Content-Type': 'application/json'});
-    let options = new RequestOptions({ headers: headers });
-
-    this.http.post('http://localhost:3000/myform', body, options)
+    this.http.post('http://localhost:3000/myform', f.value)
       .subscribe((res) => {
         console.log(res);
       });
