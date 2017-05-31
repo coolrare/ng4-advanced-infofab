@@ -59,7 +59,9 @@
           <app-block #block1>
 
             <div class="card-offset-item text-left">
-              <button type="button" class="btn-raised btn btn-primary btn-circle btn-lg">25</button>
+              <button type="button"
+                      (click)="inc($event.target)"
+                      class="btn-raised btn btn-primary btn-circle btn-lg">25</button>
             </div>
 
           </app-block>

@@ -50,4 +50,10 @@ export class CardsComponent implements OnInit {
   ngAfterViewInit() {
     this.block2.title = 'Oh, Yeah!';
   }
+
+  inc(btn: HTMLButtonElement) {
+    let num = parseInt(btn.innerText);
+    num++;
+    btn.innerText = num.toString();
+  }
 }
