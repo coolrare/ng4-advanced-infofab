@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-block',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./block.component.css']
 })
 export class BlockComponent implements OnInit {
+
+  @Input()
+  title = 'Sky red';
 
   constructor() { }
 
