@@ -48,7 +48,7 @@
                   lorem par.</p>
               </div>
               <div class="card-footer">
-                <button type="button" class="btn btn-flat btn-default">Action 1</button>
+                <button type="button" class="btn btn-flat btn-default" appBtnInc>1</button>
                 <button type="button" class="btn btn-flat btn-default">Action 2</button>
               </div>
             </div>
@@ -60,7 +60,7 @@
 
             <div class="card-offset-item text-left">
               <button type="button"
-                      (click)="inc($event.target)"
+                      appBtnInc
                       class="btn-raised btn btn-primary btn-circle btn-lg">25</button>
             </div>
 
