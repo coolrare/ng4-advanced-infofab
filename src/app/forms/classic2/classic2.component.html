@@ -9,6 +9,9 @@ touched/untouched = {{form.touched}}/{{form.untouched}}
 enabled/disabled = {{form.enabled}}/{{form.disabled}}
 errors = {{form.errors|json}}
 </pre>
+    <button type="button" (click)="setValue()">setValue</button>
+    <button type="button" (click)="patchValue()">patchValue</button>
+    <button type="button" (click)="reset()">reset</button>
     <div class="card">
       <div class="card-body">
         <form [formGroup]="form" class="form-horizontal">

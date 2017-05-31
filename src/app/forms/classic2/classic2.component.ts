@@ -9,9 +9,9 @@ import { FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
 export class Classic2Component implements OnInit {
 
   data: any = {
-      title: 'Will Huang',
-      desc: 'Hello World'
-    };
+    title: 'Will Huang',
+    desc: 'Hello World'
+  };
   form: FormGroup;
 
   constructor(private fb: FormBuilder) { }
@@ -43,8 +43,31 @@ export class Classic2Component implements OnInit {
   addAddress() {
     const addresses = this.form.controls.addresses as FormArray;
     addresses.push(
-      this.fb.control('address ' + (addresses.length+1))
+      this.fb.control('address ' + (addresses.length + 1))
     );
+  }
+
+  setValue() {
+    this.form.setValue({
+      "title": "Will Huang",
+      "desc": "Hello World",
+      "group1": {
+        "sample1": "sample 1",
+        "sample2": "sample 2"
+      },
+      "addresses": [
+        "address 1",
+        "address 2"
+      ]
+    });
+  }
+
+  patchValue() {
+    this.form.patchValue(this.data);
+  }
+
+  reset() {
+    this.form.reset(this.data);
   }
 
 }
