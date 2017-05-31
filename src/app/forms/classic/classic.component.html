@@ -23,10 +23,19 @@ errors = {{mTitle.errors|json}}
             </div>
           </fieldset>
           <fieldset>
-            <div class="form-group">
+            <div class="form-group" [class.has-error]="mDesc.invalid">
               <label class="col-sm-2 control-label">摘要</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                <input type="text" class="form-control"
+                       name="desc" ngModel #mDesc="ngModel" required>
+                <span class="help-block" *ngIf="mDesc.errors?.required">請輸入摘要</span>
+<pre>value = {{mDesc.value}}
+valid/invalid = {{mDesc.valid}}/{{mDesc.invalid}}
+dirty/pristine = {{mDesc.dirty}}/{{mDesc.pristine}}
+touched/untouched = {{mDesc.touched}}/{{mDesc.untouched}}
+enabled/disabled = {{mDesc.enabled}}/{{mDesc.disabled}}
+errors = {{mDesc.errors|json}}
+</pre>
               </div>
             </div>
           </fieldset>
