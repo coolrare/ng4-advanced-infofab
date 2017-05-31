@@ -1,16 +1,24 @@
 <section>
   <div class="container-fluid">
     <h5 class="mt0">Classic form controls and custom variants</h5>
-    <pre>{{ f.value | json }}</pre>
+    <pre>data = {{ data | json }}</pre>
+<pre>value = {{f.value | json}}
+valid/invalid = {{f.valid}}/{{f.invalid}}
+dirty/pristine = {{f.dirty}}/{{f.pristine}}
+touched/untouched = {{f.touched}}/{{f.untouched}}
+enabled/disabled = {{f.enabled}}/{{f.disabled}}
+errors = {{f.errors|json}}
+</pre>
     <div class="card">
       <div class="card-body">
-        <form method="get" action="/" class="form-horizontal" #f="ngForm">
+        <form method="get" action="/" class="form-horizontal"
+              (ngSubmit)="doSubmit(f)" #f="ngForm">
           <fieldset>
             <div class="form-group" [class.has-error]="mTitle.invalid">
               <label class="col-sm-2 control-label">標題</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control rounded"
-                       name="title" ngModel #mTitle="ngModel" required>
+                       name="title" [(ngModel)]="data.title" #mTitle="ngModel" required>
                 <span class="help-block" *ngIf="mTitle.errors?.required">請輸入標題欄位</span>
 <pre>value = {{mTitle.value}}
 valid/invalid = {{mTitle.valid}}/{{mTitle.invalid}}
@@ -27,7 +35,7 @@ errors = {{mTitle.errors|json}}
               <label class="col-sm-2 control-label">摘要</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control"
-                       name="desc" ngModel #mDesc="ngModel" required>
+                       name="desc" [(ngModel)]="data.desc" #mDesc="ngModel" required>
                 <span class="help-block" *ngIf="mDesc.errors?.required">請輸入摘要</span>
 <pre>value = {{mDesc.value}}
 valid/invalid = {{mDesc.valid}}/{{mDesc.invalid}}
@@ -39,6 +47,9 @@ errors = {{mDesc.errors|json}}
               </div>
             </div>
           </fieldset>
+
+          <input type="submit" value="送出表單" class="btn btn-default">
+
           <fieldset>
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
